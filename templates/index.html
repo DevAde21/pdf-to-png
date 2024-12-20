@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de PDF para PNG</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="draggingOverlay" class="dragging-overlay"></div>
+
+    <div class="container">
+        <br>
+        <h1>Conversão de PDF para PNG</h1>
+        <br>
+        <!-- Seção de upload -->
+        <div id="fileUploadSection">
+        <label for="file" class="custom-file-label">
+            <br><br><br><br>
+            <span class="text">Escolher arquivos</span>
+            <span class="icon">
+            <svg
+                aria-hidden="true"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H11M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                ></path>
+                <path
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke-width="2"
+                stroke="#fffffff"
+                d="M17 15V18M17 21V18M17 18H14M17 18H20"
+                ></path>
+            </svg>
+            </span>
+        </label>
+        <input type="file" name="file" id="file" accept=".pdf" multiple required style="display: none;">
+        </div>
+        <div id="avisoDrag">Ou arraste os arquivos para a tela...</div>
+        
+        <!-- Tabela estilizada para exibição dos arquivos carregados -->
+        <div style="display: flex; justify-content: center;">
+            <table id="fileList" style="display: none;">
+                <tbody id="fileTableBody">
+                  <!-- As linhas da tabela serão adicionadas aqui via JavaScript -->
+                </tbody>
+            </table>
+            <table id="removeButtonsTable" style="display: none; margin-left: 10px;">
+                <tbody id="removeButtonsBody">
+                    <!-- Botões de remover serão adicionados aqui -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Opções de conversão -->
+        <div id="convertOptions" style="display: none;">
+            <div class="zoom-container">
+                <h3 class="zoom-label">Qualidade da conversão</h3>
+                <div id="zoomControl" class="radio-input">
+                  <label>
+                    <input value="1" name="zoom-radio" id="zoom-1" type="radio">
+                    <span>Baixa</span>
+                  </label>
+                  <label>
+                    <input value="2.5" name="zoom-radio" id="zoom-1.5" type="radio" checked=""/>
+                    <span>Média</span>
+                  </label>
+                  <label>
+                    <input value="5" name="zoom-radio" id="zoom-2" type="radio">
+                    <span>Alta</span>
+                  </label>
+                  <span class="selection"></span>
+                </div>
+              </div>
+            <div id="convertBtn" class="convertButton">
+                <div class="button-wrapper">
+                    <span class="text">Converter</span>
+                    <span class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24px" height="24px" viewBox="0 0 48 48">
+                            <path fill="#ffffff" d="M12 39c-.549 0-1.095-.15-1.578-.447A3.008 3.008 0 0 1 9 36V12c0-1.041.54-2.007 1.422-2.553a3.014 3.014 0 0 1 2.919-.132l24 12a3.003 3.003 0 0 1 0 5.37l-24 12c-.42.21-.885.315-1.341.315z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção de ações após a conversão -->
+        <div id="actionsSection" style="display: none;">
+            <div id="message"></div>
+            
+            <!-- Contêiner para os botões -->
+            <div class="action-buttons">
+                <!-- Botão "Baixar tudo" -->
+                <div id="downloadAllBtn" class="downloadAllBtn">
+                    <div class="button-wrapper">
+                        <div class="text">Baixar tudo</div>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Botão "Voltar" -->
+                <div id="backButton" class="convertButton">
+                    <div class="button-wrapper">
+                        <span class="text">Voltar</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="24px" height="24px" viewBox="0 0 48 48">
+                                <path fill="#ffffff" d="M12 39c-.549 0-1.095-.15-1.578-.447A3.008 3.008 0 0 1 9 36V12c0-1.041.54-2.007 1.422-2.553a3.014 3.014 0 0 1 2.919-.132l24 12a3.003 3.003 0 0 1 0 5.37l-24 12c-.42.21-.885.315-1.341.315z"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+
+</body>
+</html>

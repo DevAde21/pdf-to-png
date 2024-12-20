@@ -1,0 +1,865 @@
+/* ==========================================================================
+   Variáveis Globais (Custom Properties)
+   ========================================================================== */
+   :root {
+    /* Cores */
+    --color-primary: #007bff;
+    --color-primary-hover: #6c18ff;
+    --color-secondary: #ebdb00;
+    --color-success: rgb(0, 140, 0);
+    --color-danger: rgb(168, 7, 7);
+    --color-white: #fff;
+    --color-gray: #bbb;
+    --color-light-gray: #f1f1f1;
+    --color-background: #ffffff;
+    --color-disabled-button: #c3e6cb;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+  
+    /* Fontes */
+    --font-family: 'Roboto', sans-serif;
+    --font-size-base: 20px;
+    --font-size-button: 1rem;
+    --font-weight-normal: 700;
+    --font-weight-bold: 700;
+  
+    /* Espaçamentos */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 1.5rem;
+    --spacing-xLarge: 2rem;
+  
+    /* Bordas */
+    --border-radius: 5px;
+    --border-width: 1px;
+    --border-color: #9c9c9c;
+    --border-color-light: #dddddd;
+  }
+  
+  /* ==========================================================================
+     Estilos Globais
+     ========================================================================== */
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--color-background);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .container {
+      margin: 0 auto;
+      max-width: 800px;
+  }
+  
+  .container > * {
+      margin: 0 auto;
+  }
+  
+  
+  /* ==========================================================================
+     Header
+     ========================================================================== */
+  header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-medium) 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ==========================================================================
+     Main Content
+     ========================================================================== */
+  main {
+      padding: var(--spacing-xLarge);
+      max-width: 800px;
+      margin: 0 auto;
+  }
+  
+  /* ==========================================================================
+     Botões Genéricos
+     ========================================================================== */
+  button {
+      font-family: var(--font-family);
+      padding: var(--spacing-small) var(--spacing-medium);
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: var(--font-size-button);
+      transition: background-color 0.2s;
+      background-color: var(--color-primary);
+      color: var(--color-white);
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  button:disabled {
+    background-color: var(--color-disabled-button);
+    cursor: not-allowed;
+  }
+  
+  /* ==========================================================================
+     Alertas e Mensagens
+     ========================================================================== */
+  #message {
+    margin-top: var(--spacing-medium);
+    font-size: var(--font-size-button);
+  }
+
+  #avisoDrag{
+    color: var(--color-primary);
+    font-size: var(--font-size-base);
+    font: var(--font-family);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    margin-top: 30px; /* Adicionando espaço superior */
+  }
+  
+  /* ==========================================================================
+     Tabelas
+     ========================================================================== */
+  table {
+      width: 550px;
+      max-height: 450px;
+      border-collapse: collapse;
+      margin-top: var(--spacing-medium);
+      border: var(--border-width) solid var(--border-color);
+      background-color: var(--color-white);
+      overflow: hidden;
+      border-radius: 8px;
+      table-layout: fixed;
+  }
+  
+  #fileList tbody {
+      display: block;
+      max-height: 375px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+  }
+  
+  
+  table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: var(--border-width) solid var(--border-color-light);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+      border-right: var(--border-width) solid var(--border-color-light);
+      height: 35px;
+      line-height: 1.2;
+      vertical-align: middle;
+      box-sizing: border-box;
+    font-family: var(--font-family);
+    font-size: 16px;
+  }
+  
+  table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table tr td:nth-child(1) {
+      width: 370px;
+      max-width: 370px;
+      box-sizing: border-box;
+  }
+  
+  table tr td:nth-child(2) {
+      width: 110px;
+      max-width: 110px;
+      box-sizing: border-box;
+  }
+  
+  table tr td:nth-child(3) {
+      width: 70px;
+      max-width: 70px;
+      box-sizing: border-box;
+  }
+  
+  
+  table tbody tr:nth-child(odd) {
+    background-color: var(--color-background);
+  }
+  
+  table tbody tr:nth-child(even) {
+    background-color: var(--color-white);
+  }
+  
+  /* ==========================================================================
+     Barras de Rolagem
+     ========================================================================== */
+  #fileList tbody::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #fileList tbody::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray);
+    border-radius: 4px;
+  }
+  
+  #fileList tbody::-webkit-scrollbar-track {
+    background-color: var(--color-light-gray);
+  }
+  
+  #fileList tbody {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray) var(--color-light-gray);
+  }
+  
+  
+  #fileList tbody::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  #fileList tbody::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 4px;
+  }
+  
+  #fileList tbody::-webkit-scrollbar-track {
+    background-color: var(--color-light-gray);
+  }
+  
+  /* ==========================================================================
+      Botões e Links
+     ========================================================================== */
+  .removeButton,
+  .downloadButton,
+  .downloadAllBtn,
+  .custom-file-label,
+  .addFileButton,
+  .convertButton,
+  #backButton {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+    /* Reset de estilos */
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+   /* Remover Button */
+  .removeButton {
+      position: relative;
+      right: 6.5px;
+      top: 2px;
+    }
+    
+  .removeButton::after {
+      content: 'delete';
+      position: absolute;
+      top: -130%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: fit-content;
+      height: fit-content;
+      background-color: var(--color-danger);
+      padding: 4px 8px;
+      border-radius: var(--border-radius);
+      transition: .2s linear;
+      transition-delay: .2s;
+      color: var(--color-white);
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+  .removeButton .icon {
+      transform: scale(.9);
+      transition: .01s linear;
+    }
+    
+  .removeButton:hover .icon {
+      transform: scale(1);
+    }
+    
+  .removeButton:hover .icon path {
+      fill: var(--color-danger);
+    }
+    
+  .removeButton:hover::after {
+      visibility: visible;
+      opacity: 1;
+      top: -160%;
+  }
+  
+   /* Download Button */
+  .downloadButton {
+      position: relative;
+      bottom: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s linear;
+  }
+    
+  .downloadButton .icon {
+      transform: scale(0.9);
+      transition: transform 0.1s linear;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+    
+  .downloadButton:hover .icon {
+      transform: scale(1.1);
+  }
+  
+  .downloadButton:hover > .icon path {
+      fill: var(--color-success);
+  }
+  
+  /* Baixar Tudo Button */
+  .downloadAllBtn {
+    --width: 140px;
+    --height: 50px;
+    width: var(--width);
+    height: var(--height);
+    background: var(--color-primary);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    transition: background 0.3s;
+    cursor: pointer;
+  }
+  
+  .downloadAllBtn .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .downloadAllBtn .button-wrapper,
+  .downloadAllBtn .text,
+  .downloadAllBtn .icon {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      right: .85px;
+      color: var(--color-white);
+  }
+  
+  .downloadAllBtn .text {
+      top: 0
+  }
+  
+  .downloadAllBtn .text,
+  .downloadAllBtn .icon {
+      transition: top 0.5s;
+  }
+  
+  .downloadAllBtn .icon {
+      color: var(--color-white);
+      top: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .downloadAllBtn .icon svg {
+      width: 24px;
+      height: 24px;
+  }
+  
+  .downloadAllBtn:hover {
+      background: var(--color-primary-hover);
+  }
+  
+  .downloadAllBtn:hover .text {
+      top: -100%;
+  }
+  
+  .downloadAllBtn:hover .icon {
+      top: 0;
+  }
+  
+  /* Escolher arquivos Button */
+  .custom-file-label {
+    --width: 300px;
+    --height: 75px;
+    margin-top: 23px;
+    width: var(--width);
+    height: var(--height);
+    background-color: var(--color-primary);
+    border-radius: 0.45em;
+    color: var(--color-white);
+    text-align: center;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .custom-file-label .text {
+    font-size: 29px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .custom-file-label .icon {
+    position: absolute;
+    top: 100%;
+    right: 1.3px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+  
+  .custom-file-label .icon svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--color-white);
+  }
+  
+  .custom-file-label:hover {
+    background-color: var(--color-primary-hover);
+  }
+  
+  .custom-file-label:hover .text {
+    transform: translateY(-100%);
+  }
+  
+  .custom-file-label:hover .icon {
+    transform: translateY(-100%);
+  }
+  
+  .custom-file-label:focus {
+    outline: none;
+  }
+  
+  
+  /* Add files Button */
+  .addFileButton {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white);
+    cursor: pointer;
+    position: relative;
+    background-color: rgb(92, 92, 92);
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-radius: 0px;
+  }
+  
+  .addFileButton::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 130, 190);
+      transform: translateX(-100%);
+      transition: all .3s;
+      z-index: -1;
+  }
+  
+  .addFileButton:hover::before {
+      transform: translateX(0);
+  }
+  
+  .addFileCell {
+      padding: 0;
+      height: 50px;
+      width: 100%;
+      border: 0;
+  }
+  
+  /* Converter Button */
+  .convertButton {
+    --width: 140px;
+    --height: 50px;
+    width: var(--width);
+    height: var(--height);
+    background: var(--color-primary);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  
+  .convertButton .text {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    transition: left 0.6s ease;
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  .convertButton .button-wrapper, .convertButton .text, .convertButton .icon {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      color: var(--color-white);
+  }
+  
+  .convertButton .icon {
+      color: var(--color-white);
+      left: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: left 0.3s ease, transform 0.3s ease;
+  }
+  
+  .convertButton .icon svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.6s ease;
+  }
+  
+  .convertButton:hover {
+    background: var(--color-primary-hover);
+  }
+  
+  .convertButton:hover .text {
+    left: -100%;
+  }
+  
+  .convertButton:hover .icon {
+    left: 45%;
+    transform: translateX(-50%);
+  }
+  
+  
+  #convertBtn {
+    font-size: 1.3rem;
+    height: 50px;
+    width: 140px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 0.45em;
+    transition: background-color 0.3s;
+  }
+  
+  #convertBtn:hover {
+    background-color: var(--color-success);
+  }
+  
+  /* Back Button */
+  #backButton {
+      --width: 140px;
+      --height: 50px;
+      width: var(--width);
+      height: var(--height);
+      background: var(--color-primary);
+      position: relative;
+      text-align: center;
+      border-radius: 0.45em;
+      transition: background 0.3s;
+      overflow: hidden;
+      cursor: pointer;
+  }
+      
+  #backButton .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 0;
+      transition: left 0.6s ease;
+      width: 100%;
+      white-space: nowrap;
+  }
+      
+  #backButton .button-wrapper, #backButton .text, #backButton .icon {
+      overflow: hidden;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: var(--color-white);
+  }
+      
+  #backButton .icon {
+      color: var(--color-white);
+      left: -100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: left 0.6s ease, transform 0.3s ease;
+  }
+      
+  #backButton .icon svg {
+      width: 24px;
+      height: 24px;
+      transition: transform 0.6s ease;
+      transform: scaleX(-1);
+  }
+      
+  #backButton:hover {
+      background: var(--color-secondary);
+  }
+      
+  #backButton:hover .text {
+      left: 100%;
+  }
+      
+  #backButton:hover .icon {
+      left: 50%;
+      transform: translateX(-50%) scaleX(1);
+  }
+      
+  #backButton .icon {
+      margin-left: 8px;
+      width: 24px;
+      height: 24px;
+      transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+      
+  #backButton:hover .icon {
+      left: 41%;
+      transform: translateX(-50%) scaleX(1);
+  }
+      
+  #backButton:hover .text {
+      left: 100%;
+  }
+  
+  /* Estilos para o ícone e texto */
+  .button-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .text {
+      transition: left 0.6s ease-in-out;
+  }
+  
+  .icon {
+    margin-left: 8px;
+    width: 24px;
+    height: 24px;
+    transition: left 0.6s ease-in-out, transform 0.6s ease-in-out;
+  }
+  
+  /* ==========================================================================
+     Loading Animation
+     ========================================================================== */
+  .button-with-icon {
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: var(--border-width) solid #0f988e;
+      letter-spacing: 1px;
+      padding: 0 12px;
+      text-align: center;
+      width: 120px;
+      height: 40px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: normal;
+      border-radius: 3px;
+      outline: none;
+      user-select: none;
+      cursor: pointer;
+      transform: translateY(0px);
+      position: relative;
+      box-shadow:
+        inset 0 30px 30px -15px rgba(255, 255, 255, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 1px 20px rgba(0, 0, 0, 0),
+        0 3px 0 #0f988e,
+        0 3px 2px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.1);
+      background: #15ccbe;
+      color: var(--color-white);
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+      transition: 150ms all ease-in-out;
+      position: relative;
+      overflow: hidden;
+  }
+    
+  .loader {
+      width: 30px;
+      aspect-ratio: 1;
+      --_g: no-repeat radial-gradient(circle closest-side, var(--color-white) 90%, transparent);
+      background: 
+        var(--_g) 0%   50%,
+        var(--_g) 50%  50%,
+        var(--_g) 100% 50%;
+      background-size: calc(100% / 3) 50%;
+      animation: l3 1s infinite linear;
+      display: block;
+      margin: 0 auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+    
+  @keyframes l3 {
+      20% { background-position: 0%   0%, 50%  50%, 100%  50%; }
+      40% { background-position: 0% 100%, 50%   0%, 100%  50%; }
+      60% { background-position: 0%  50%, 50% 100%, 100%   0%; }
+      80% { background-position: 0%  50%, 50%  50%, 100% 100%; }
+  }
+  
+  /* ==========================================================================
+      Overlay
+      ========================================================================== */
+  #dragOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-overlay);
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    display: none;
+  }
+  
+  .drag-highlight {
+      border: 2px dashed var(--color-primary);
+      padding: var(--spacing-xLarge);
+      text-align: center;
+      margin-top: var(--spacing-medium);
+      background-color: #e9f7fd;
+      transition: background-color 0.3s;
+  }
+  
+  .drag-highlight:hover {
+    background-color: #cce5ff;
+  }
+  
+  /* ==========================================================================
+     Seletor de Qualidade
+     ========================================================================== */
+  .zoom-container {
+      text-align: center;
+      margin: 20px 0;
+  }
+  
+  .zoom-label {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+  }
+  
+  .radio-input input {
+      display: none;
+  }
+  
+  .radio-input {
+      --container_width: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-radius: 9999px;
+      background-color: rgb(92, 92, 92);
+      color: var(--color-white);
+      width: var(--container_width);
+      overflow: hidden;
+      margin: 0 auto;
+  }
+  
+  .radio-input label {
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      font-weight: 600;
+      color: var(--color-white);
+        font-family: var(--font-family);
+      font-size: var(--font-size-base);
+  }
+  
+  .selection {
+      display: none;
+      position: absolute;
+      height: 100%;
+      width: calc(var(--container_width) / 3);
+      z-index: 0;
+      left: 0;
+      top: 0;
+      transition: .15s ease;
+  }
+  
+  .radio-input label:has(input:checked) {
+      color: var(--color-white);
+  }
+  
+  .radio-input label:has(input:checked) ~ .selection {
+      background-color: rgb(11 117 223);
+      display: inline-block;
+  }
+  
+  .radio-input label:nth-child(1):has(input:checked) ~ .selection {
+      transform: translateX(calc(var(--container_width) * 0/3));
+  }
+  
+  .radio-input label:nth-child(2):has(input:checked) ~ .selection {
+      transform: translateX(calc(var(--container_width) * 1/3));
+  }
+  
+  .radio-input label:nth-child(3):has(input:checked) ~ .selection {
+      transform: translateX(calc(var(--container_width) * 2/3));
+  }
+  
+  /* ==========================================================================
+     Seções
+     ========================================================================== */
+  #fileList {
+    margin-top: var(--spacing-large);
+    display: none;
+  }
+  
+  #actionsSection {
+    display: none;
+    text-align: center;
+  }
+  
+  /* ==========================================================================
+     Container de Botões
+     ========================================================================== */
+  .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+  }
