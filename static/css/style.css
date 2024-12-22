@@ -735,33 +735,34 @@
   /* ==========================================================================
       Overlay
       ========================================================================== */
-  #dragOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-overlay);
-    color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    display: none;
-  }
-  
-  .drag-highlight {
-      border: 2px dashed var(--color-primary);
-      padding: var(--spacing-xLarge);
-      text-align: center;
-      margin-top: var(--spacing-medium);
-      background-color: #e9f7fd;
-      transition: background-color 0.3s;
-  }
-  
-  .drag-highlight:hover {
-    background-color: #cce5ff;
-  }
+      #dragOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-overlay);
+        color: var(--color-white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        display: none;
+        pointer-events: none; /* Adicionado aqui */
+      }
+      
+      .drag-highlight {
+          border: 2px dashed var(--color-primary);
+          padding: var(--spacing-xLarge);
+          text-align: center;
+          margin-top: var(--spacing-medium);
+          background-color: #e9f7fd;
+          transition: background-color 0.3s;
+      }
+      
+      .drag-highlight:hover {
+        background-color: #cce5ff;
+      }
   
   /* ==========================================================================
      Seletor de Qualidade

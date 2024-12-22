@@ -132,6 +132,9 @@ function handleDroppedFiles(files) {
 
     // Ocultar a seção de upload após o primeiro arquivo ser selecionado
     document.getElementById("fileUploadSection").style.display = "none";
+    
+    // Ocultar o aviso de drag and drop
+    document.getElementById("avisoDrag").style.display = "none";
 }
 
 // Atualiza a visibilidade do botão e slider
@@ -171,8 +174,9 @@ overlayText.style.position = "absolute"; // Posicionamento absoluto para central
 overlayText.style.top = "50%";
 overlayText.style.left = "50%";
 overlayText.style.transform = "translate(-50%, -50%)"; // Centraliza o texto
-overlay.appendChild(overlayText);
+
 document.body.appendChild(overlay);
+overlay.appendChild(overlayText);
 
 document.addEventListener("dragenter", function (e) {
     e.preventDefault();
